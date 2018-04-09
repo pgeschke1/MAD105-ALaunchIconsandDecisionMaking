@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currencyEntered = Double.parseDouble(currency.getText().toString());
-                DecimalFormat USCurrency = new DecimalFormat("$##,###.00");
-                DecimalFormat EUCurrency = new DecimalFormat("€##,###.00");
+                DecimalFormat USCurrency = new DecimalFormat("€##,###.00");
+                DecimalFormat EUCurrency = new DecimalFormat("$##,###.00");
                 if (usToEu.isChecked()){
                     if (currencyEntered <= 10000){
                         convertedCurrency = currencyEntered * conversionRate;
