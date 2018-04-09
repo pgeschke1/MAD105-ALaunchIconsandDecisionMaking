@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currencyEntered = Double.parseDouble(currency.getText().toString());
-                DecimalFormat USCurrency = new DecimalFormat("€##,###.00");
-                DecimalFormat EUCurrency = new DecimalFormat("$##,###.00");
+                DecimalFormat USCurrency = new DecimalFormat("$##,###.00");
+                DecimalFormat EUCurrency = new DecimalFormat("€##,###.00");
                 if (usToEu.isChecked()){
                     if (currencyEntered <= 10000){
                         convertedCurrency = currencyEntered * conversionRate;
-                        result.setText(USCurrency.format(convertedCurrency));
+                        result.setText(EUCurrency.format(convertedCurrency));
                     }else{
                         Toast.makeText(MainActivity.this, "Amount must be less than $10,000",
                                 Toast.LENGTH_LONG).show();
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 if (euToUS.isChecked()){
                     if (currencyEntered <=8150.50){
                         convertedCurrency = currencyEntered / conversionRate;
-                        result.setText(EUCurrency.format(convertedCurrency));
+                        result.setText(USCurrency.format(convertedCurrency));
                     }else {
                         Toast.makeText(MainActivity.this,"Amount must be less than €8150.50",Toast.LENGTH_LONG).show();
                     }
